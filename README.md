@@ -62,3 +62,14 @@ This project is being developed as part of the Thumbstack Full Stack Developer A
 - `.env` – Stores environment variables such as the server port, database connection string, and JWT secret securely.
 
 
+
+##  MongoDB connection 
+
+- Uses **Mongoose** to connect to MongoDB.
+- Connection logic is separated into `src/config/db.js`.
+- Uses the `MONGO_URI` environment variable from `.env`.
+- Handles successful and failed database connections.
+
+
+
+
