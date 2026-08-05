@@ -71,5 +71,13 @@ This project is being developed as part of the Thumbstack Full Stack Developer A
 - Handles successful and failed database connections.
 
 
+## Make user model 
+
+- Created User schema using Mongoose.
+- Added email validation using Regex.
+- Password is hashed using `bcryptjs` before saving.
+- Used `select: false` to hide password from query results.
+- Created `comparePassword()` method to verify user passwords.
+- Used `pre("save")` middleware to hash passwords automatically.
 
 
