@@ -367,3 +367,21 @@ GET /api/dashboard
 ### 📸 API Testing
 
 ![Dashboard API](./screenshots/dashboard-api.png)
+
+
+##  Logout
+
+**Endpoint**
+
+```http
+POST /api/auth/logout
+```
+
+**Description**
+
+- Clears the authentication token.
+- Logs out the current user securely.
+
+###  API Testing
+
+![Logout API](./screenshots/logout-api.png)

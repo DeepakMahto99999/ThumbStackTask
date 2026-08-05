@@ -107,3 +107,17 @@ export const userLoginController = async (req, res) => {
         });
     }
 };
+
+
+/**
+ *  - user logout controller
+ *  - POST /api/auth/logout
+ */
+export const userLogoutController = (req, res) => {
+    res.clearCookie("token");
+
+    return res.status(200).json({
+        success: true,
+        message: "Logged out successfully."
+    });
+};
