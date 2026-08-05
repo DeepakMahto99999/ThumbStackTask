@@ -266,3 +266,45 @@ POST /api/books
 The API was tested successfully using Postman.
 
 ![Add Book API](./screenshots/add-book-api.png)
+
+
+
+###  Get All Books
+
+**Endpoint**
+
+```http
+GET /api/books
+```
+
+**Description**
+
+- Retrieves all books belonging to the authenticated user.
+- Supports filtering by reading status and tags.
+
+###  API Testing
+
+![Get All Books](./screenshots/get-all-books.png)
+
+---
+
+### 📘 Get Single Book
+
+**Endpoint**
+
+```http
+GET /api/books/:id
+```
+
+**Description**
+
+- Retrieves a specific book by its ID.
+- Ensures the book belongs to the authenticated user.
+
+###  API Testing
+
+![Get Single Book](./screenshots/get-singal-book.png) 
+
+
+
+
