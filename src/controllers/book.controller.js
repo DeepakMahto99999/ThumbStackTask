@@ -112,3 +112,86 @@ export const getSingleBook = async (req, res) => {
         });
     }
 };
+
+
+/**
+ * PATCH /api/books/:id
+ */
+export const updateBook = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { title, author, tags, status } = req.body;
+
+        const updates = {};
+
+        if (title !== undefined) updates.title = title;
+        if (author !== undefined) updates.author = author;
+        if (tags !== undefined) updates.tags = tags;
+        if (status !== undefined) updates.status = status;
+
+        const updatedBook = await Book.findOneAndUpdate(
+            {
+                _id: id,
+                userId: req.user._id,
+            },
+            updates,
+            {
+                returnDocument: "after",
+                runValidators: true
+            }
+        );
+
+        if (!updatedBook) {
+            return res.status(404).json({
+                success: false,
+                message: "Book not found.",
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Book updated successfully.",
+            data: updatedBook,
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Failed to update book.",
+            error: error.message,
+        });
+    }
+};
+
+/**
+ * DELETE /api/books/:id
+ */
+export const deleteBook = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const deletedBook = await Book.findOneAndDelete({
+            _id: id,
+            userId: req.user._id,
+        });
+
+        if (!deletedBook) {
+            return res.status(404).json({
+                success: false,
+                message: "Book not found.",
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Book deleted successfully.",
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Failed to delete book.",
+            error: error.message,
+        });
+    }
+};

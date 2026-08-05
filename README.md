@@ -308,3 +308,39 @@ GET /api/books/:id
 
 
 
+##  Update Book
+
+**Endpoint**
+
+```http
+PATCH /api/books/:id
+```
+
+**Description**
+
+- Updates the selected book.
+- Allows updating one or more book fields.
+- Accessible only to the authenticated user who owns the book.
+
+###  API Testing
+
+![Update Book API](./screenshots/update-book.png)
+
+---
+
+##  Delete Book
+
+**Endpoint**
+
+```http
+DELETE /api/books/:id
+```
+
+**Description**
+
+- Deletes the selected book from the user's collection.
+- Accessible only to the authenticated user who owns the book.
+
+###  API Testing
+
+![Delete Book API](./screenshots/delete-book.png)
