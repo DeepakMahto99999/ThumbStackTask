@@ -384,4 +384,70 @@ POST /api/auth/logout
 
 ###  API Testing
 
-![Logout API](./screenshots/logout-api.png)
+![Logout API](./screenshots/logout-api.png) 
+
+
+
+
+## ✅ Backend Completed
+
+### Implemented APIs
+
+- ✅ Register
+- ✅ Login
+- ✅ Logout
+- ✅ Add Book
+- ✅ Get All Books
+- ✅ Get Single Book
+- ✅ Update Book
+- ✅ Delete Book
+- ✅ Dashboard
+
+---
+
+## 🧪 API Testing
+
+The following scenarios have been tested successfully:
+
+- ✅ Register with a new user
+- ✅ Login with valid credentials
+- ✅ Logout
+- ✅ Add a new book
+- ✅ Get all books
+- ✅ Get a single book
+- ✅ Update book details
+- ✅ Delete a book
+- ✅ Dashboard statistics
+
+### Error Handling
+
+- ✅ Register with an existing email → **409 Conflict**
+- ✅ Login with invalid credentials → **401 Unauthorized**
+- ✅ Access protected routes without authentication → **401 Unauthorized**
+- ✅ Update another user's book → **404 Not Found** / **401 Unauthorized**
+- ✅ Delete another user's book → **404 Not Found** / **401 Unauthorized**
+- ✅ Add a book without a required title → **400 Bad Request**
+
+---
+
+## 📁 Backend Structure
+
+```text
+src/
+├── config/
+│   └── db.js
+├── controllers/
+│   ├── auth.controller.js
+│   ├── book.controller.js
+│   └── dashboard.controller.js
+├── middleware/
+│   └── auth.middleware.js
+├── models/
+│   ├── user.model.js
+│   └── book.model.js
+├── routes/
+│   ├── auth.routes.js
+│   ├── book.routes.js
+│   └── dashboard.routes.js
+├── app.js
+└── server.js
