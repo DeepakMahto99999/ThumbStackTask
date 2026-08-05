@@ -217,3 +217,23 @@ Send Response
 
 
 
+
+
+## 📚 Book Model
+
+The **Book** model stores each user's personal book collection.
+
+### Fields
+
+- **userId** – Reference to the authenticated user who owns the book.
+- **title** – Name of the book.
+- **author** – Author of the book.
+- **tags** – Array of tags used to categorize books (e.g., Fiction, JavaScript, Self-Help).
+- **status** – Reading status of the book (`Want to Read`, `Reading`, `Completed`).
+
+### Features
+
+- Stores books for authenticated users.
+- Supports categorization using tags.
+- Tracks the reading progress of each book.
+- Automatically maintains `createdAt` and `updatedAt` timestamps.
