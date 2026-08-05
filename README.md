@@ -344,3 +344,26 @@ DELETE /api/books/:id
 ###  API Testing
 
 ![Delete Book API](./screenshots/delete-book.png)
+
+
+
+##  Dashboard
+
+**Endpoint**
+
+```http
+GET /api/dashboard
+```
+
+**Description**
+
+- Returns a summary of the authenticated user's book collection.
+- Displays the total number of books.
+- Shows the number of books in each reading status:
+  - Want to Read
+  - Reading
+  - Completed
+
+### 📸 API Testing
+
+![Dashboard API](./screenshots/dashboard-api.png)
