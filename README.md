@@ -81,3 +81,132 @@ This project is being developed as part of the Thumbstack Full Stack Developer A
 - Used `pre("save")` middleware to hash passwords automatically.
 
 
+
+
+
+## Implemented user registration and login APIs.
+
+### Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Register a new user |
+| POST | `/api/auth/login` | Login an existing user |
+
+
+### Registration
+
+- Checks if the email already exists.
+- Creates a new user.
+- Password is automatically hashed using Mongoose middleware.
+- Generates a JWT token.
+- Stores the JWT in a cookie.
+- Returns user information and token.
+
+
+### Login
+
+- Finds the user by email.
+- Retrieves the hidden password using `select("+password")`.
+- Verifies the password using `comparePassword()`.
+- Generates a new JWT token.
+- Stores the JWT in a cookie.
+- Returns authenticated user information and token.
+
+### Packages Used
+
+- `jsonwebtoken` – Generate JWT tokens.
+- `cookie-parser` – Parse and set cookies.
+- `bcryptjs` – Password hashing and verification.
+
+
+
+### User Registration
+
+```text
+Client (POST /api/auth/register)
+        │
+        ▼
+server.js
+        │
+        ▼
+app.js
+        │
+        ▼
+auth.routes.js
+        │
+        ▼
+userRegisterController()
+        │
+        ▼
+userModel
+        │
+        ▼
+Mongoose Middleware (pre("save"))
+        │
+        ▼
+Hash Password (bcrypt)
+        │
+        ▼
+MongoDB
+        │
+        ▼
+Generate JWT
+        │
+        ▼
+Set Cookie
+        │
+        ▼
+Send Response
+```
+
+---
+
+### User Login
+
+```text
+Client (POST /api/auth/login)
+        │
+        ▼
+server.js
+        │
+        ▼
+app.js
+        │
+        ▼
+auth.routes.js
+        │
+        ▼
+userLoginController()
+        │
+        ▼
+userModel.findOne()
+        │
+        ▼
+select("+password")
+        │
+        ▼
+comparePassword()
+        │
+        ▼
+Generate JWT
+        │
+        ▼
+Set Cookie
+        │
+        ▼
+Send Response
+```
+
+
+##  API Testing in Postman
+
+### User Registration
+
+![User Registration](./screenshots/register-api-success.png)
+
+### User Login
+
+![User Login](./screenshots/login-api-success.png)
+
+
