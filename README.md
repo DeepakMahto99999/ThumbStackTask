@@ -236,4 +236,33 @@ The **Book** model stores each user's personal book collection.
 - Stores books for authenticated users.
 - Supports categorization using tags.
 - Tracks the reading progress of each book.
-- Automatically maintains `createdAt` and `updatedAt` timestamps.
+- Automatically maintains `createdAt` and `updatedAt` timestamps. 
+
+
+
+## 📚 Book APIs
+
+### ➕ Add Book
+
+**Endpoint**
+
+```http
+POST /api/books
+```
+
+**Description**
+
+- Adds a new book to the authenticated user's personal collection.
+- Requires JWT authentication.
+- Stores the book title, author, tags, and reading status.
+- Automatically links the book to the logged-in user.
+
+---
+
+##  API Testing
+
+### Add Book API
+
+The API was tested successfully using Postman.
+
+![Add Book API](./screenshots/add-book-api.png)
