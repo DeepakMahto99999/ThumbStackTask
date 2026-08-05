@@ -210,3 +210,10 @@ Send Response
 ![User Login](./screenshots/login-api-success.png)
 
 
+##  `src/middleware`
+- Protects routes using JWT authentication.
+- Allows access only to authenticated users.
+- Verifies the JWT token and attaches the authenticated user to `req.user`.
+
+
+
