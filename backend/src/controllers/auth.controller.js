@@ -33,6 +33,8 @@ export const userRegisterController = async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
+            secure: true,          // Required for HTTPS
+            sameSite: "none",      // Required for cross-site cookies
             maxAge: 3 * 24 * 60 * 60 * 1000,
         });
 
@@ -88,6 +90,8 @@ export const userLoginController = async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
+            secure: true,          // Required for HTTPS
+            sameSite: "none",      // Required for cross-site cookies
             maxAge: 3 * 24 * 60 * 60 * 1000,
         });
 
@@ -114,7 +118,11 @@ export const userLoginController = async (req, res) => {
  *  - POST /api/auth/logout
  */
 export const userLogoutController = (req, res) => {
-    res.clearCookie("token");
+    res.clearCookie("token", {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+    });
 
     return res.status(200).json({
         success: true,
